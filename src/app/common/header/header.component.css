@@ -1,0 +1,9 @@
+:host {
+    .header {
+        height: 50px;
+        background: #0072bb;
+        text-align: center;
+        border-radius: 0 0 20px 20px;
+        box-shadow: 1px 1px 1px 1px lightgray;
+    }
+}

@@ -1,0 +1,65 @@
+<header [name]="'Accounts'"></header>
+<div style="height: calc(100% - 50px);">
+    <div style="display: flex; justify-content: space-between; padding: 15px 10px 0 10px;">
+        <div style="width: 100%;
+        text-align: end;">
+            <button class="btn" (click)="delete()">Delete Customer</button>
+        </div>
+    </div>
+    <form [formGroup]="CustomerForm">
+        <div class="formStyle">
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Customer ID</mat-label>
+                    <input matInput placeholder="Ex. 12345" formControlName="customerId" readonly>
+                </mat-form-field>
+            </div>
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Full Name</mat-label>
+                    <input matInput placeholder="Ex. Rony El Weter" formControlName="fullName">
+                </mat-form-field>
+            </div>
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>ID Card #</mat-label>
+                    <input matInput placeholder="Ex. A1515615115" readonly formControlName="idCard">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+    <div style="display: flex; justify-content: space-between; padding: 15px 10px 0 10px;">
+        <div style="width: 100%;
+        text-align: center;">
+            <button class="btnCancel" (click)="back()">Back</button>
+        </div>
+        <div style="width: 100%;
+            text-align: left;">
+            <button class="savebtn" (click)="createAccount()">New Account</button>
+        </div>
+    </div>
+    <div style="padding: 15px 10px 0 10px;">
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="accountId">
+                <th mat-header-cell *matHeaderCellDef> Account ID </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;" (click)="updateAccount(element)"> {{element.accountId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="accountName">
+                <th mat-header-cell *matHeaderCellDef> Account Name </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;" (click)="updateAccount(element)"> {{element.accountName}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="balance">
+                <th mat-header-cell *matHeaderCellDef> Balance </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;" (click)="updateAccount(element)"> {{element.balance}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"
+                style="font-size: 20px; font-family: sans-serif; color: white; background-color: #0072bb;"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="tabRow"></tr>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<header [name]="'Transaction'"></header>
+<div style="height: calc(100% - 50px);">
+    <form [formGroup]="TransactionForm" (ngSubmit)="save(TransactionForm.value)">
+            <div class="formStyle">
+                <div style="width: 30%;">
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Select an option</mat-label>
+                        <mat-select [(value)]="selected" formControlName="tranxType" (selectionChange)="getTransType()">
+                          <mat-option value="w">Withdrawal</mat-option>
+                          <mat-option value="d">Deposit</mat-option>
+                          <mat-option value="t">Transfer To Account</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </div>
+            </div>
+            <div class="formStyle">
+                <div style="width: 30%;">
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Transaction Amount</mat-label>
+                        <input matInput #initAmt placeholder="Ex. 1000" type="number" formControlName="tranxAmount">
+                        <span matTextSuffix>USD</span>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="formStyle">
+                <div style="width: 30%;">
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>Notes</mat-label>
+                        <input matInput  placeholder="Ex. First Transaction" formControlName="notes">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="formStyle" *ngIf="toAccount">
+                <div style="width: 30%;">
+                    <mat-form-field style="width: 100%;">
+                        <mat-label>To Account ID</mat-label>
+                        <input matInput type="number" placeholder="Ex. 12345" formControlName="toAccountId">
+                    </mat-form-field>                    
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: space-around; padding: 35px 10px 0 10px;">
+                <div class="btnPosition" style="text-align: -webkit-right;">
+                    <button class="btnCancel" (click)="cancel()">Cancel</button>
+                </div>
+                <div class="btnPosition"style="text-align: -webkit-left;">
+                    <button class="btnSave" type="submit">Save</button>
+                </div>
+            </div>
+    </form>
+</div>

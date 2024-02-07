@@ -1,0 +1,44 @@
+:host {
+    .btn {
+        background: #0072bb;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #0072bb;
+        border-style: none;
+        font-size: 20px;
+        color: white;
+        height: 41px;
+        font-family: sans-serif;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .btn:hover {
+        background: white;
+        border-style: solid;
+        border-width: 1px;
+        border-color: #0072bb;
+        font-size: 20px;
+        color: #0072bb;
+        height: 41px;
+        font-family: sans-serif;
+        width: 100%;
+        cursor: pointer;
+    }
+
+    .tabRow {
+        cursor: pointer;
+    }
+
+    .tabRow:hover {
+        background-color: rgba(1, 151, 246, .15);
+    }
+
+    .inputClass {
+        width: 100%;
+        font-size: 20px;
+        font-family: sans-serif;
+        padding-left: 2%;
+        height: 35px
+    }
+}

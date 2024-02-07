@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+    margin: 0 !important;
+    height: 100%;
+}
+
+html {
+    height: 100%;
+    background: rgba(1, 151, 246, 0.15);
+}
+
+textarea:focus,
+input:focus {
+    outline: none;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+    background-color: white !important;
+}
+
+.mat-mdc-dialog-content {
+    text-align: center !important;
+    margin-top: 45px !important;
+    color: black !important;
+    font-size: large !important;
+}
+
+.mat-mdc-dialog-container {
+    width: 400px !important;
+    height: 200px !important;
+}
+.mat-mdc-dialog-surface{
+     background-color: rgb(235, 229, 229) !important;
+}
+.mdc-snackbar__surface{
+    background-color: #0072bb !important;
+    text-align: center !important;
+}
+.mat-mdc-snack-bar-label {
+    font-size: large !important;
+}
+
+.mdc-dialog__container{
+    margin-top: -145px !important;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

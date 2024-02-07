@@ -1,0 +1,90 @@
+<header [name]="'Transactions'"></header>
+<div style="height: calc(100% - 50px);">
+    <form [formGroup]="transactionForm">
+        <div class="formStyle">
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Account ID</mat-label>
+                    <input matInput formControlName="accountId" readonly>
+                </mat-form-field>
+            </div>
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Start Date</mat-label>
+                    <input matInput [matDatepicker]="picker" formControlName="startDate" (dateChange)="getSpecificTranx()">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>End Date</mat-label>
+                    <input matInput [matDatepicker]="picker1" formControlName="endDate" (dateChange)="getSpecificTranx()">
+                    <mat-datepicker-toggle matIconSuffix [for]="picker1" ></mat-datepicker-toggle>
+                    <mat-datepicker #picker1></mat-datepicker>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+    <div style="display: flex; justify-content: space-between; padding: 15px 10px 0 10px;">
+        <div style="width: 100%;
+        text-align: center;">
+            <button class="btnCancel" (click)="back()">Back</button>
+        </div>
+        <div style="width: 100%;
+        text-align: center;">
+            <button class="btn" (click)="delete()">Delete Account</button>
+        </div>
+        <div style="width: 100%;
+            text-align: center;">
+            <button class="savebtn" (click)="createTransaction()">New Transaction</button>
+        </div>
+    </div>
+    <div style="padding: 15px 10px 0 10px;">
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <ng-container matColumnDef="tranxId">
+                <th mat-header-cell *matHeaderCellDef> Transaction ID </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;"> {{element.tranxId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tranxType">
+                <th mat-header-cell *matHeaderCellDef> Transaction Type </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;"> {{element.tranxType}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tranxAmount">
+                <th mat-header-cell *matHeaderCellDef> Transaction Amount </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;"> {{element.tranxAmount}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="notes">
+                <th mat-header-cell *matHeaderCellDef> Notes </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;"> {{element.notes}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="toAccountId">
+                <th mat-header-cell *matHeaderCellDef> To Account ID </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;"> {{element.toAccountId}} </td>
+            </ng-container>
+
+            <ng-container matColumnDef="tranxDate">
+                <th mat-header-cell *matHeaderCellDef> Transaction Date </th>
+                <td mat-cell *matCellDef="let element" style="font-family: sans-serif;"> {{element.tranxDate}} </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"
+                style="font-size: 20px; font-family: sans-serif; color: white; background-color: #0072bb;"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="tabRow"></tr>
+        </table>
+    </div>
+
+    <div style="display: flex; justify-content: space-between; padding: 15px 10px 0 10px;">
+        <div style="width: 50%;
+            text-align: right;
+            margin-left: 12%;">
+            <button class="pdfBtn" (click)="downloadPdf()">Download Pdf</button>
+        </div>
+    </div>
+</div>

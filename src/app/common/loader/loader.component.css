@@ -1,0 +1,28 @@
+:host{
+    .loader .loading-elements {
+        max-width: 250px;
+    }
+
+    .images {
+        width: 200px !important;
+        border-radius: 45px;
+        margin-bottom: 10px;
+    }
+
+    .loaderBody{
+       position: fixed;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(255,255,255,0.7);
+        z-index: 2;
+        color: white;
+    }
+}

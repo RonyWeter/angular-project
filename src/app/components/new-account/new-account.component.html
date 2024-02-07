@@ -1,0 +1,39 @@
+<!-- <loader *ngIf="loader"></loader> -->
+<header [name]="'Account Information'"></header>
+<div style="height: calc(100% - 50px);">
+    <form [formGroup]="AccountForm" (ngSubmit)="save(AccountForm.value)">
+        <div class="formStyle">
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Customer Id</mat-label>
+                    <input matInput readonly formControlName="customerId">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="formStyle">
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Account Name</mat-label>
+                    <input matInput placeholder="Ex. Fresh Dollar" formControlName="accountName">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="formStyle">
+            <div style="width: 30%;">
+                <mat-form-field style="width: 100%;">
+                    <mat-label>Amount</mat-label>
+                    <input matInput #initAmt placeholder="Ex. 1000" type="number" formControlName="initialAmount">
+                    <span matTextSuffix>USD</span>
+                </mat-form-field>
+            </div>
+        </div>
+        <div style="display: flex; justify-content: space-around; padding: 35px 10px 0 10px;">
+            <div class="btnPosition" style="text-align: -webkit-right;">
+                <button class="btnCancel" (click)="cancel()">Cancel</button>
+            </div>
+            <div class="btnPosition"style="text-align: -webkit-left;">
+                <button class="btnSave" type="submit">Save</button>
+            </div>
+        </div>
+    </form>
+</div>
